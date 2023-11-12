@@ -18,8 +18,14 @@ This practice project allows you to apply your SQL knowledge to a real-world dat
 
  ## Create the Subquery
 First, remember to import the db_course_conversions database and refresh the Schemas pane to see it appear. Apply the USE keyword to use the named database as the default (current) one.
- 
- Then, by appropriately joining and aggregating the tables, create a new result dataset comprising the following columns:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pkkpython/Calculating-Free-to-Paid-Conversion-Rate-with-SQL-Project/main/Calculating%20Free-to-Paid%20Conversion%20Rate%20with%20SQL%20Project/venndiagram.png" alt="Sublime's custom image"/>
+</p>
+
+
+Next, join the three tables to retrieve the records shown in the Venn diagram.
+
+Then, by appropriately joining and aggregating the tables, create a new result dataset comprising the following columns:
 
 - student_id – (int) the unique identification of a student
 - date_registered – (date) the date on which the student registered on the 365 platform
@@ -166,9 +172,6 @@ FROM
 (...) a;
 ```
 
-
-
-
 ### MAIN QUERY
 
 ```sql
@@ -265,7 +268,9 @@ SQL is a tool typically used for managing data, combined with other software whe
 - Mean: 3.42
 - The number that repeats the most in the data is 0. Additionally, the number that sits in the middle of the dataset is also 0. Such metric values indicate the right-skewness of the data—i.e., we can find outliers to the right, towards higher values, of the data distribution. This implies that some students in the dataset have registered on the 365 platform but started watching a lecture much later. To convince ourselves, let’s also study visually the distribution of the numbers.
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pkkpython/Calculating-Free-to-Paid-Conversion-Rate-with-SQL-Project/main/Calculating%20Free-to-Paid%20Conversion%20Rate%20with%20SQL%20Project/watch.png" alt="Average Duration Between Registration and First-Time Engagement"/>
+</p>
 
 - Almost all students watch a lecture immediately after registering. Very few return to the platform to start a course several days or even a year after registration. One reason for returning could be because of a marketing campaign, a free-day campaign, etc.
 
@@ -277,7 +282,9 @@ SQL is a tool typically used for managing data, combined with other software whe
 - Mean: 26
 - We see that the mean is significantly higher than the other two metrics. This points towards the presence of even more extreme outliers in this dataset. Let’s discuss the metrics one by one. The most occurring value is again 0. Therefore, students who purchase a subscription are prone to do it on the same day. The value in the middle of the dataset—assuming it’s ordered—is 1, which means that the people who buy on the same day are less than half of all users making a purchase. To be more specific, about 49% of the people purchase on the day they’ve watched a lecture for the first time. The mean value, however, assumes that the transition from free-plan to paying students happens for almost a month. Let’s again estimate this discrepancy visually.
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pkkpython/Calculating-Free-to-Paid-Conversion-Rate-with-SQL-Project/main/Calculating%20Free-to-Paid%20Conversion%20Rate%20with%20SQL%20Project/purch.png" alt="Average Duration Between First-Time Engagement and First-Time Purchase"/>
+</p>
 
 - We can again see that the data is skewed to the right, which we could’ve inferred from the fact that the mode is smaller than the median, which, in turn, is smaller than the mean. As we can see, most users purchase within a day or two after they’ve watched a lecture. Some people, however, purchase several months later. One reason could be that they liked the content on the platform but have been waiting for the product to be offered at an exclusive price.
 
